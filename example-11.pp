@@ -1,3 +1,8 @@
+# You can apply this manifest by running:
+# sudo puppet apply --verbose < example-11.pp
+# To run in 'dry-run' mode, add --noop
+# sudo puppet apply --noop --verbose < example-11.pp
+
 
 # Facts are always strings :/
 if $::is_virtual == 'true' {
