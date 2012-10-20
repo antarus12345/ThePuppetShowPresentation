@@ -10,6 +10,6 @@
 
 file { '/tmp/test4':
   ensure => file,
-  mode   => 600,
+  mode   => '0600',
   source => 'files/example-06.file',
 }

@@ -10,12 +10,12 @@
 
 file { '/tmp/test1':
   ensure  => present,
-  content => "Hi.",
+  content => 'Hi.',
 }
 
 file { '/tmp/test2':
   ensure => directory,
-  mode   => 0644,
+  mode   => '0644',
 }
 
 file { '/tmp/test3':
@@ -23,7 +23,8 @@ file { '/tmp/test3':
   target => '/tmp/test1',
 }
 
-# Notify is a resource that just prints messages, usually for logging / debug stuff.
-notify { 'I\'m notifying you.': } # Whitespace is fungible, remember.
+# Notify is a resource that just prints messages, usually for
+# logging / debug stuff.
+notify { 'I\'m notifying you.': }
 notify { 'So am I!': }
 

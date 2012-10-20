@@ -3,7 +3,7 @@
 # To run in 'dry-run' mode, add --noop
 # sudo puppet apply --noop --verbose < example-08.pp
 
-# Setting up a service. This is a pretty common task. Here we 
+# Setting up a service. This is a pretty common task. Here we
 # install ssh, drop in a customize config for it, then turn the
 # service on
 # Install ssh, install a custom config, then turn ssh on.
@@ -20,7 +20,7 @@ file { '/etc/ssh/sshd_config':
   source => '/root/learning-manifests/sshd_config',
 }
 
-# Notice the 'subscribe' paramter here. You might be thinking 'oh that 
+# Notice the 'subscribe' paramter here. You might be thinking 'oh that
 # is like inotify', however the subscription is only for when puppet itself
 # modifies the parent resource (/etc/ssh/sshd_config in this case.)
 service { 'sshd':

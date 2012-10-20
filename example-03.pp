@@ -15,8 +15,8 @@
 # complex examples.
 
 file { '/tmp/test2':
-  ensure => link,
-  target => '/tmp/test1',
+  ensure  => link,
+  target  => '/tmp/test1',
   require => File['/tmp/test1'],
 }
 
