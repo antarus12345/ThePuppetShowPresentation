@@ -3,7 +3,6 @@
 # To run in 'dry-run' mode, add --noop
 # sudo puppet apply --noop --verbose < example-11.pp
 
-
 # Facts are always strings :/
 if $::is_virtual == 'true' {
   notify { 'this is a virtual machine':}

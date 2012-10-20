@@ -14,13 +14,14 @@
 # this example is quite contrived (made up) there are obviously more
 # complex examples.
 
-file {'/tmp/test1':
+file { '/tmp/test2':
+  ensure => link,
+  target => '/tmp/test1',
+  require => File['/tmp/test1'],
+}
+
+file { '/tmp/test1':
   ensure  => present,
   content => 'Hi!',
 }
 
-file { '/tmp/test2':
-  ensure => link,
-  target => '/tmp/test1',
-#  require => File['/tmp/test1'],
-}

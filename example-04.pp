@@ -9,13 +9,13 @@
 # more complex examples exists where one is more convenient, particularly
 # when relationships are one-to-many.
 
-file {'/tmp/test1':
+file { '/tmp/test1':
   ensure  => present,
   content => 'Hi!',
   before  => File['/tmp/test2'],
 }
 
-file {'/tmp/test2':
+file { '/tmp/test2':
   ensure => link,
   target => '/tmp/test1',
 }
