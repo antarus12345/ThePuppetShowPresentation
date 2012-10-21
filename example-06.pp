@@ -21,8 +21,11 @@ file { '/tmp/test4':
   content => inline_template('<%= scope.lookupvar("custom_timeout").nil? ? custom_timeout.to_i : 5 %>'),
 }
 
+$explanation = ['This pin is here for this reason',]
+$pin = ['release a=stable']
+$priority = ['600']
+$package = ['*']
 # inline template can also be used to generate file contents.
-
 $content = inline_template('
 Explanation: Managed Apt Pin
 <% explanation.each do |e| -%>
