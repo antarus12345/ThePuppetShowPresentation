@@ -14,10 +14,18 @@ class ssh {
     before => File['/etc/ssh/sshd_config'],
   }
 
-  file { '/etc/ssh/sshd_config':
+  file { '/etc/ssh/ssh_config':
     ensure => file,
     mode   => '0600',
-    source => 'puppet:///modules/ssh/sshd_config',
+    source => 'puppet:///modules/ssh/ssh_config',
+  }
+
+  $sshd_ports = [22, 45]
+
+  file { '/etc/ssh/sshd_config':
+    ensure  => file,
+    mode    => '0600',
+    content => template('ssh/sshd_config.erb'),
   }
 
   # Notice the 'subscribe' paramter here. You might be thinking 'oh that

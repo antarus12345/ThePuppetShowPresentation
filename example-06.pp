@@ -6,15 +6,18 @@
 # We saw earlier setting file content with the content parameter.
 # E.g. file { '/tmp/foo': content => 'hi!' }
 # A common use case is simply to copy the contents of a file,
-# basic file distribution. We will see that later (as it is slightly more complicated.)
+# basic file distribution. We will see that later (as it is slightly more
+#  complicated.)
 
-# For now we present the evil that is inline_template. This allows you to execute pure ruby.
+# For now we present the evil that is inline_template. This allows you to
+#  execute pure ruby.
 
 file { '/tmp/test4':
   ensure  => file,
   mode    => '0755',
-  # Here we are looking to see if a variable 'custom_timeout' exists. If it exists, we convert it to int
-  # and consume that value. Otherwise we set a sane default.
+  # Here we are looking to see if a variable 'custom_timeout' exists.
+  # If it exists, we convert it to int and consume that value.
+  # Otherwise we set a sane default.
   content => inline_template('<%= scope.lookupvar("custom_timeout").nil? ? custom_timeout.to_i : 5 %>'),
 }
 
